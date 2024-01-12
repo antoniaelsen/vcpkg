@@ -22,9 +22,11 @@ vcpkg_fixup_pkgconfig()
 file(REMOVE_RECURSE "${CURRENT_PACKAGES_DIR}/debug/include")
 
 if(VCPKG_LIBRARY_LINKAGE STREQUAL dynamic)
-    file(READ "${CURRENT_PACKAGES_DIR}/include/docopt/docopt.h" _contents)
-    string(REPLACE "#ifdef DOCOPT_DLL" "#if 1" _contents "${_contents}")
-    file(WRITE "${CURRENT_PACKAGES_DIR}/include/docopt/docopt.h" "${_contents}")
+    if (VCPKG_TARGET_IS_WINDOWS AND NOT VCPKG_TARGET_IS_MINGW)
+        file(READ "${CURRENT_PACKAGES_DIR}/include/docopt/docopt.h" _contents)
+        string(REPLACE "#ifdef DOCOPT_DLL" "#if 1" _contents "${_contents}")
+        file(WRITE "${CURRENT_PACKAGES_DIR}/include/docopt/docopt.h" "${_contents}")
+    endif()    
 endif()
 
 # Header-only style when DOCOPT_HEADER_ONLY is defined
