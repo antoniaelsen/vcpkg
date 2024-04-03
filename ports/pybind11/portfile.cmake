@@ -4,16 +4,14 @@ vcpkg_from_github(
     REF "v${VERSION}"
     SHA512 c20247a4dccec310307174a26a79f9a98dd7ae7c84a48ad61c61589b02ef74caac26c2945de602cbe38b0bea65fc9985f1cc37f9e2322cae2f824dee98d602f1
     HEAD_REF master
-    PATCHES
-        fix-debug-link.patch
 )
 
 vcpkg_cmake_configure(
     SOURCE_PATH "${SOURCE_PATH}"
-		#    OPTIONS
-		#        -DPYBIND11_TEST=OFF
-		#        # Disable all Python searching, Python required only for tests
-		#        -DPYBIND11_NOPYTHON=ON
+        OPTIONS
+		    -DPYBIND11_TEST=OFF
+            # Disable all Python searching, Python required only for tests
+            -DPYBIND11_NOPYTHON=ON
 )
 
 vcpkg_cmake_install()
