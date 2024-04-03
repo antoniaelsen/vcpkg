@@ -10,10 +10,10 @@ vcpkg_from_github(
 
 vcpkg_cmake_configure(
     SOURCE_PATH "${SOURCE_PATH}"
-    OPTIONS
-        -DPYBIND11_TEST=OFF
-        # Disable all Python searching, Python required only for tests
-        -DPYBIND11_NOPYTHON=ON
+		#    OPTIONS
+		#        -DPYBIND11_TEST=OFF
+		#        # Disable all Python searching, Python required only for tests
+		#        -DPYBIND11_NOPYTHON=ON
 )
 
 vcpkg_cmake_install()
