@@ -65,6 +65,13 @@ vcpkg_cmake_configure(
         ZSTD_MSVC_LIB_PREFIX
 )
 
+
+# vcpkg_cmake_install runs make with target 'install'
+# this will not build the parquet, etc features
+if("parquet" IN_LIST FEATURES)
+    vcpkg_cmake_build(TARGET "parquet-all")
+endif()
+
 vcpkg_cmake_install()
 vcpkg_copy_pdbs()
 
