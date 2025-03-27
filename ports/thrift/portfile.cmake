@@ -13,7 +13,7 @@ vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO apache/thrift
     REF "${VERSION}"
-    SHA512 5e4ee9870b30fe5ba484d39781c435716f7f3903793dc8aae96594ca813b1a5a73363b84719038ca8fa3ab8ef0a419a28410d936ff7b3bbadf36fc085a6883ae
+    SHA512 86a609f5725506abc2109902b338cbaad85abf980f9d28c63e6e50a5c265dc10699372c4e91f5ee85d8d09fbcbb0dc17c19745b86d215b96bbf7d0a9270f0932
     HEAD_REF master
     PATCHES
       "correct-paths.patch"
@@ -67,7 +67,7 @@ vcpkg_cmake_configure(
         CMAKE_REQUIRE_FIND_PACKAGE_Libevent
         CMAKE_REQUIRE_FIND_PACKAGE_OpenSSL
         CMAKE_REQUIRE_FIND_PACKAGE_ZLIB
-    
+
 )
 
 vcpkg_cmake_install()
